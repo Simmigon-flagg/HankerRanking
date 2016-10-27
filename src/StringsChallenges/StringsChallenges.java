@@ -17,104 +17,116 @@ public class StringsChallenges {
 
     public static void main(String[] args) {
 
-        //   getEnterDataUsingLoops();
-        getJavaAnagrams();
+        getCountLetters("Simmigon");
+
+    }
+
+    static void getCountLetters(String string) {
+        int sumletters = 0;
+        //remove spaces
+        string = string.replaceAll(" ", "");
+        //make case insensitive
+        string = string.toLowerCase();
+        //make char array
+        char[] Letters = string.toCharArray();
+        //allo space for alphabet
+        int[] alphabet = new int[26];
+        
+        // For each lowercase letter in the array, count i
+        for (int i = 0; i < Letters.length; i++) {
+            alphabet[Letters[i] - 'a']++;
+        }
+        //for each letter in the alphabet not equal to
+        //0 print it
+        for (int i = 0; i < alphabet.length; i++) {
+            if (alphabet[i] != 0) {
+                System.out.println(alphabet[i] + " " + (char) (i + 'a'));
+            }
+        }
+        //sum all the letter in the string
+        for (int i = 0; i < alphabet.length; i++) {
+            sumletters += alphabet[i];
+        }
+
+//            for (int i = 0; i < freqB.length; i++) {
+//                if (freqA[i] == freqB[i]) {
+//                    anagramIs = "Anagrams";
+//                     isAnagram = true; 
+//                } else {
+//                    anagramIs = "Not Anagrams";
+//                    isAnagram = false;
+//                    break;
+//                }
+//
+//            }
+          System.out.println(sumletters);       
+    }
+
+    static boolean getJavaAnagramsfreq() {
+        String anagramIs = "Not Anagrams";
+        String a = "margana";
+        String b = "margana";
+        boolean isAnagram = false;
+        if (a.length() == b.length()) {
+            a = a.toLowerCase();
+            b = b.toLowerCase();
+
+            char[] A = a.toCharArray();
+            char[] B = b.toCharArray();
+            int[] freqA = new int[26];
+            int[] freqB = new int[26];
+            // For each lowercase letter in the array, count i
+
+            for (int i = 0; i < A.length; i++) {
+                freqA[A[i] - 'a']++;
+                freqB[B[i] - 'a']++;
+            }
+
+            for (int i = 0; i < freqB.length; i++) {
+                if (freqA[i] == freqB[i]) {
+                    anagramIs = "Anagrams";
+                    isAnagram = true;
+                } else {
+                    anagramIs = "Not Anagrams";
+                    isAnagram = false;
+                    break;
+                }
+
+            }
+
+        }
+
+        System.out.println(anagramIs);
+        return isAnagram;
     }
 
     static void getJavaAnagrams() {
-        String anagram = "Simmigon";
-        String A = "";
-        String isAnagram = "Not Anagrams";
-        for (int i = 0; i < anagram.length(); i++) {
+        String a = "simmigon";
+        String b = "simmigon";
+        int count = 0;
+        for (int i = 0; i < a.length(); i++) {
+            String atemp = a.substring(i, i + 1);
+            for (int j = 0; j < b.length(); j++) {
+                //is There a letter in b that
+                //match a
+                String btemp = b.substring(j, j + 1);
+                System.out.println(atemp + " " + btemp + "\t" + (atemp.equals(btemp)));
+                if (atemp.equals(btemp)) {
+                    b = b.replaceFirst(btemp, "");
+                    System.out.println(a);
+                    System.out.println("Remaining:" + b);
 
-            System.out.println(anagram);
+                    count++;
+                    break;
+                }
+                if (a.charAt(i) == b.charAt(j)) {
 
-            A = anagram.substring(1, 2);
+                }//end of if
+            }//inner for loop
+        }//outter for loop
 
-            anagram = anagram.replaceFirst(anagram.substring(i + 1,i + 2), anagram.substring(i,i+ 1));
-            anagram = anagram.replaceFirst(anagram.substring(i, i+1), A);
-            System.out.println(anagram);
-            A = anagram.substring(i+2,i + 3);
-
-            ///System.out.println(anagram);
-            anagram = anagram.replaceFirst(anagram.substring(2, 3), anagram.substring(1, 2));
-            //System.out.println(anagram);
-            anagram = anagram.replaceFirst(anagram.substring(1, 2), A);
-            for (int j = 0; j < anagram.length(); j++) {
-
-                System.out.println(anagram);
-
-                A = anagram.substring(1, 2);
-
-                anagram = anagram.replaceFirst(anagram.substring(1, 2), anagram.substring(0, 1));
-                anagram = anagram.replaceFirst(anagram.substring(0, 1), A);
-                System.out.println(anagram);
-                A = anagram.substring(2, 3);
-
-                ///System.out.println(anagram);
-                anagram = anagram.replaceFirst(anagram.substring(2, 3), anagram.substring(1, 2));
-                //System.out.println(anagram);
-                anagram = anagram.replaceFirst(anagram.substring(1, 2), A);
-            }
-        }
-//        System.out.println(anagram);
-//        A = anagram.substring(1, 2);
-//
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), anagram.substring(0, 1));
-//        anagram = anagram.replaceFirst(anagram.substring(0, 1), A);
-//        System.out.println(anagram);
-//        A = anagram.substring(2, 3);
-//
-//        ///System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(2, 3), anagram.substring(1, 2));
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), A);
-//        System.out.println(anagram);
-//        //Swap and start again with A
-//        System.out.println("==========================================");
-//        anagram = "ACT";
-//        System.out.println(anagram);
-//        A = anagram.substring(1, 2);
-//
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), anagram.substring(0, 1));
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(0, 1), A);
-//        System.out.println(anagram);
-//        A = anagram.substring(2, 3);
-//
-//        ///System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(2, 3), anagram.substring(1, 2));
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), A);
-//        System.out.println(anagram);
-//
-//        System.out.println("==========================================");
-//        anagram = "ATC";
-//        System.out.println(anagram);
-//        A = anagram.substring(1, 2);
-//
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), anagram.substring(0, 1));
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(0, 1), A);
-//        System.out.println(anagram);
-//        A = anagram.substring(2, 3);
-//
-//        ///System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(2, 3), anagram.substring(1, 2));
-//        //System.out.println(anagram);
-//        anagram = anagram.replaceFirst(anagram.substring(1, 2), A);
-//        System.out.println(anagram);
-//
-////        anagram = anagram.replace(A, ' ');       
-//        System.out.println(anagram);
-//        anagram = anagram.replace(C, A);        
-//        System.out.println(anagram);
-//        anagram = anagram.replace(' ',C);
-//        System.out.println(anagram);
-//        
-        //System.out.println(anagram.indexOf("C"));
+        //   System.out.println(count);
+        System.out.println(b);
     }
 
     static void getJavaStringReverse() {
