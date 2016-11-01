@@ -16,9 +16,7 @@ import java.util.Scanner;
 public class StringsChallenges {
 
     public static void main(String[] args) {
-
-        getCountLetters("Simmigon");
-
+       
     }
 
     static void getCountLetters(String string) {
@@ -31,7 +29,7 @@ public class StringsChallenges {
         char[] Letters = string.toCharArray();
         //allo space for alphabet
         int[] alphabet = new int[26];
-        
+
         // For each lowercase letter in the array, count i
         for (int i = 0; i < Letters.length; i++) {
             alphabet[Letters[i] - 'a']++;
@@ -47,19 +45,112 @@ public class StringsChallenges {
         for (int i = 0; i < alphabet.length; i++) {
             sumletters += alphabet[i];
         }
+        System.out.println(sumletters);
+    }
 
-//            for (int i = 0; i < freqB.length; i++) {
-//                if (freqA[i] == freqB[i]) {
-//                    anagramIs = "Anagrams";
-//                     isAnagram = true; 
-//                } else {
-//                    anagramIs = "Not Anagrams";
-//                    isAnagram = false;
-//                    break;
-//                }
-//
-//            }
-          System.out.println(sumletters);       
+    static void TryAndCount() {
+        String s = "simmigon Flagg";
+        String d = "Denzel Flagg";
+        s = s.toLowerCase().replaceAll(" ", "");
+        d = d.toLowerCase().replaceAll(" ", "");
+
+        char[] sLetter = s.toCharArray();
+        int[] alphaS = new int[26];
+        int[] alphaD = new int[26];
+
+        for (int i = 0; i < sLetter.length; i++) {
+            alphaS[sLetter[i] - 'a']++;
+        }
+        for (int i = 0; i < alphaS.length; i++) {
+            if (alphaS[i] != 0) {
+                System.out.println(alphaS[i] + " " + (char) (i + 'a'));
+            }
+        }
+        int sumS = 0;
+        for (int i = 0; i < alphaS.length; i++) {
+            sumS+= alphaS[i];
+            
+        }
+        System.out.println(sumS);
+        char[] dLetter = s.toCharArray();
+        int[] dCount = new int[26];
+        for (int i = 0; i < dLetter.length; i++) {
+            dCount[dLetter[i] - 'a']++;
+        }
+        int sumD = 0;
+        for (int i = 0; i < alphaS.length; i++) {           
+           sumD += alphaD[i];           
+        }
+        System.out.println(sumD);
+      
+
+    }
+
+    static void getJavaStringTokens() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter String: ");
+        String s = scan.nextLine();
+        int c = 0;
+        while (scan.hasNext()) {
+            System.out.println(c++);
+            String g = scan.next();
+            System.out.println(g);
+        }
+    }
+
+    static void getJavaStringCompareAll() {
+        String a = "abcdefghijklmnopqrstuvwxyz";
+        String A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int max = -1;
+        int indexMax = -1;
+        int indexMin = 58;
+        int min = 58;
+        int n = 4;
+        for (int i = 0; i < 26; i++) {
+            if (i % 10 == 0) {
+                System.out.println("");
+            }
+            System.out.print(A.substring(i, i + 1) + " ");
+            System.out.print(-1 * "A".compareTo(A.substring(i, i + 1)) + " ");
+        }
+        System.out.println("");
+
+        for (int i = 0; i < 26; i++) {
+            if (i % 10 == 0) {
+                System.out.println("");
+            }
+            System.out.print(a.substring(i, i + 1) + " ");
+            System.out.print(-1 * "A".compareTo(a.substring(i, i + 1)) + " ");
+        }
+        System.out.println("");
+        System.out.println("");
+        String Aa = A.concat(a);
+        System.out.println(Aa);
+        for (int i = 0; i < Aa.length() - n; i++) {
+            if (i % 10 == 0) {
+                System.out.println();
+            }
+
+            System.out.print(Aa.substring(i, i + 1) + " ");
+            if (max < -1 * "A".compareTo(Aa.substring(i, i + 1))) {
+                max = -1 * "A".compareTo(Aa.substring(i, i + 1));
+                indexMax = i;
+                System.out.println("MaxIndex" + indexMax);
+            }
+            if (min > -1 * "A".compareTo(Aa.substring(i, i + 1))) {
+                min = -1 * "A".compareTo(Aa.substring(i, i + 1));
+                indexMin = i;
+                System.out.println("MinIndex" + indexMin);
+            }
+        }
+        System.out.println("");
+        System.out.println("");
+        System.out.println("indexMax " + indexMax);
+        System.out.println("indexMin " + indexMin);
+
+        System.out.println("Max " + max + " Letter " + Aa.substring(indexMax, indexMax + n));
+        System.out.println("Max " + max + " Letter " + Aa.substring(indexMin, indexMin + n));
+
     }
 
     static boolean getJavaAnagramsfreq() {
@@ -70,18 +161,23 @@ public class StringsChallenges {
         if (a.length() == b.length()) {
             a = a.toLowerCase();
             b = b.toLowerCase();
-
             char[] A = a.toCharArray();
             char[] B = b.toCharArray();
             int[] freqA = new int[26];
             int[] freqB = new int[26];
             // For each lowercase letter in the array, count i
 
+            //The array could be differen size
             for (int i = 0; i < A.length; i++) {
                 freqA[A[i] - 'a']++;
-                freqB[B[i] - 'a']++;
+               
             }
-
+            //The array could be differen size
+            for (int i = 0; i < B.length; i++) {
+                 freqB[B[i] - 'a']++;
+                
+            }
+            // This look could be A or B
             for (int i = 0; i < freqB.length; i++) {
                 if (freqA[i] == freqB[i]) {
                     anagramIs = "Anagrams";
@@ -188,32 +284,37 @@ public class StringsChallenges {
         //String s = in.next();
         //   String s = "welcometojava";
         String s = "fsdfsDLJFSJGIHEKHIPEINNNFIGHKkjgksfgjrotyotoyjtkjkLJOIOEHEKHKKDJGKFGJkfjhglfhjtrhkjfkhjnfglhkjflgjhtrljhfljhfgljhfgljhfgljhtrklyjhtrkjhfgkljhfgjhfljhtrljlfjhfgljhfglkjhflyjtljtrlyjhtryjtrtykhrktherktjhtrkyjhkujhtykhtryhrthHKLJHLHRLHTLRHLKHTRLKHLHRLHLKHLKHKLHLKHLHKLHKHJKHKJHKJHJKHKHJKHKHHLHLHLHKHKJHKJKKHKHKHKHKHHKHKHKHKHkhktryhtlhtklhtrkyhtrkyhtrkjyhtrkyhrekthtrkyhtrkhtrkyhtrkhtrkyhtrkhtrkyhtrkhtrkyhtrkhtrkyhtrkhtrkyhtrkhtrkyhtrkrtkyhtrklyhjrOEOHKDHFksdhfklHLHKHLHKKJHJHKGKLHLHJLJHLHLHLHLHHLHLHLHH";
-        //int n = in.next();
-        int n = 100;
+        s = "welcometojava";
+        int n = 3;
         int max = -1;
         int min = 200;
-        String maxString = "";
-        String minString = "";
+        int maxIndex = -1;
+        int minIndex = 200;
 
-        for (int i = 0; i < s.length() - n + 1; i++) {
+        String[] maxString = new String[s.length()];
+        String[] minString = new String[s.length()];
+        System.out.println("String - the substring: " + (s.length() - n));
+        System.out.println(n + " Letter;");
 
-            if (s.length() - n + 1 == i) {
-                break;
-            }
-            // A = 0 amd lowercase z = 57
-            if (min > (-1 * "A".compareTo(s.substring(i, i + 1)))) {
-                minString = "";
-                minString = s.substring(i, i + n);
-                min = -1 * "A".compareTo(s.substring(i, i + 1));
-            }
-            if (max < (-1 * "A".compareTo(s.substring(i, i + 1)))) {
-                maxString = "";
-                maxString = s.substring(i, i + n);
+        for (int i = 0; i <= s.length() - n; i++) {
+            System.out.println("i " + i);
+            System.out.println("s charAt " + s.charAt(i));
+            if (max < -1 * "A".compareTo(s.substring(i, i + 1))) {
+                System.out.println(s.substring(i, i + n));
                 max = -1 * "A".compareTo(s.substring(i, i + 1));
+                //  System.out.println("Max " + max);
+                maxIndex = i;
             }
+            if (min > -1 * "A".compareTo(s.substring(i, i + 1))) {
+                min = -1 * "A".compareTo(s.substring(i, i + 1));
+                minIndex = i;
+            }
+
         }
-        System.out.println(minString);
-        System.out.println(maxString);
+        System.out.println("Max: " + max);
+        System.out.println("Word " + s.substring(maxIndex, maxIndex + n));
+        System.out.println("Min: " + min);
+        System.out.println("Word " + s.substring(minIndex, minIndex + n));
 
     }
 
