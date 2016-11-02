@@ -1,4 +1,3 @@
-
 package Days_of_Code;
 
 import java.util.Scanner;
@@ -46,8 +45,49 @@ public class DaysOfCode {
         }//end of while loop
         System.out.println(consecutiveOnes);
     }
-    static void day19Interfaces() {
-        
-    
+
+    static void day12In() {
+        class Student {
+
+            private int[] testScores;
+//
+//            public Student(String firstName, String lastNAme, int id, int[] scores) {
+//                this.firstName = firstName;
+//                this.LastName = lastName;
+//                this.id = id;
+//                this.scores = scores;
+//
+//            }
+
+        }
+
     }
+
+}
+
+class Person {
+
+    protected String firstName;
+    protected String lastName;
+    protected int identification;
+
+    Person(String firstName, String lastName, int identification) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.identification = identification;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", identification=" + identification + '}';
+    }
+}
+
+class Student extends Person {
+
+    public Student(String firstName, String lastName, int identification) {
+        super(firstName, lastName, identification);
+    }
+   
+
 }

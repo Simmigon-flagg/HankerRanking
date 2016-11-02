@@ -6,7 +6,15 @@ import java.util.Scanner;
 public class DataStructures {
 
     public static void main(String[] flagg) {
-        LeftRotation();
+        JavaSubArray();
+    }
+
+    static void JavaSubArray() {
+        int[] a = {1, -2, 4, -5, 1};
+        int sum = 0;
+        int count = 0;
+  
+        System.out.println(count);
     }
 
     static void TwoDArray() {
@@ -66,7 +74,6 @@ public class DataStructures {
         }
         System.out.println(maxTotal);
 
-
     }
 
     static void LeftRotation() {
@@ -119,7 +126,6 @@ public class DataStructures {
          The N + 2nd line contains , Q the number of queries.
          The following Q lines each contain a query string.
          */
-        
-        
+
     }
 }
