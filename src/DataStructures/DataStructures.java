@@ -1,19 +1,79 @@
 package DataStructures;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class DataStructures {
 
     public static void main(String[] flagg) {
-        JavaSubArray();
+        String a = "daBcd";
+        String b = "ABCK";
+        tempAbbreviation(a, b);
+    }
+
+    static void tempAbbreviation(String a, String b) {
+        String ans = "YES";
+        int count = 0;
+        String A = "";
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < a.length(); i++) {
+            A += a.substring(i, i + 1).toUpperCase();
+        }
+
+        for (int i = 0; i < A.length(); i++) {
+            for (int j = 0; j < b.length(); j++) {        
+                if (A.charAt(i) == b.charAt(j)) {
+                    str.append(b.charAt(j));
+                    count++;
+                }
+            }
+        }
+        if (count == b.length()) {
+            ans = "YES";
+        } else {
+            ans = "NO";
+        }
+        
+        System.out.println(ans);
+
+    }
+
+    static void getJavaArraylist() {
+        ArrayList<ArrayList<Integer>> aList = new ArrayList<>();
+        ArrayList<Integer> a = new ArrayList<>();
+        ArrayList<Integer> b = new ArrayList<>();
+        ArrayList<Integer> c = new ArrayList<>();
+        ArrayList<Integer> d = new ArrayList<>();
+        //  Integer.MIN_VALUE
+        //    aList.add(a);
+        //    aList.add(b);
+        aList.add(c);
+        aList.add(d);
+        for (int i = 0; i < 20; i++) {
+            a.add(i);
+            b.add(i * 2);
+            c.add(i * 3);
+            d.add(i * 4);
+        }
+        System.out.println(aList.size());
+//        for (int i = 0; i < aList.size(); i++) {
+//                        
+//        }
+        for (int i = 0; i < a.size(); i++) {
+            System.out.print(a.get(i) + " ");
+            System.out.print(b.get(i) + " ");
+            System.out.print(c.get(i) + " ");
+            System.out.println(d.get(i) + " ");
+        }
+
     }
 
     static void JavaSubArray() {
         int[] a = {1, -2, 4, -5, 1};
         int sum = 0;
         int count = 0;
-  
+
         System.out.println(count);
     }
 

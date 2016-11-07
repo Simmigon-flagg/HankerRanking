@@ -5,10 +5,14 @@ import java.util.Scanner;
 public class DaysOfCode {
 
     public static void main(String[] flagg) {
-        day10BinaryNumbers();
+
     }
 
-    static void day_7() {
+    static void getDay15LinkedList() {
+        
+    }
+
+    static void getDay_7() {
         //print array backwards
         // Scanner in = new Scanner(System.in);
         // int n =in.nextInt();
@@ -23,7 +27,7 @@ public class DaysOfCode {
 
     }
 
-    static void day10BinaryNumbers() {
+    static void getDay10BinaryNumbers() {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int count = 0;
@@ -46,7 +50,7 @@ public class DaysOfCode {
         System.out.println(consecutiveOnes);
     }
 
-    static void day12In() {
+    static void getDay12In() {
         class Student {
 
             private int[] testScores;
@@ -88,6 +92,5 @@ class Student extends Person {
     public Student(String firstName, String lastName, int identification) {
         super(firstName, lastName, identification);
     }
-   
 
 }
