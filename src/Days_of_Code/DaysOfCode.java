@@ -5,11 +5,25 @@ import java.util.Scanner;
 public class DaysOfCode {
 
     public static void main(String[] flagg) {
+    }
+
+    static void getDay16Exceptions_StringtoInteger() {
+        // Scanner in = new Scanner(System.in);
+        // String S = in.next();
+
+        String S = "a5";
+
+        try {
+            int n = Integer.parseInt(S);
+            System.out.println(n);
+        } catch (NumberFormatException e) {
+            System.out.println("Bad String");
+        }
 
     }
 
     static void getDay15LinkedList() {
-        
+        // See MyLinkedList Class and Node class
     }
 
     static void getDay_7() {
