@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class StringsChallenges {
 
     public static void main(String[] args) {
-       
+        getCountLetters("Simmigon ");
     }
 
     static void getCountLetters(String string) {
@@ -38,7 +38,7 @@ public class StringsChallenges {
         //0 print it
         for (int i = 0; i < alphabet.length; i++) {
             if (alphabet[i] != 0) {
-                System.out.println(alphabet[i] + " " + (char) (i + 'a'));
+                System.out.println((char) (i + 'a'));
             }
         }
         //sum all the letter in the string

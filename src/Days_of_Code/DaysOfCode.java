@@ -1,31 +1,26 @@
 package Days_of_Code;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-class Calculator {
-
-    public int power(int n, int p) throws Exception {
-
-        if (n < 0 || p < 0) {
-            throw new Exception("n and p should be non-negative");
-        }//end of if        
-        
-        return (int)Math.pow(n, p);
-    }//end
-}
 
 public class DaysOfCode {
 
     public static void main(String[] flagg) {
-        getDay17MoreExceptions();
+        getDay18QueuesandStacks();
+    }
+
+    static void getDay18QueuesandStacks() {
+
     }
 
     static void getDay17MoreExceptions() {
         Calculator my = new Calculator();
         try {
-                System.out.println(my.power(3, 3));
+            System.out.println(my.power(3, 3));
         } catch (Exception ex) {
             Logger.getLogger(DaysOfCode.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -131,4 +126,38 @@ class Student extends Person {
         super(firstName, lastName, identification);
     }
 
+}
+
+class Calculator {
+
+    public int power(int n, int p) throws Exception {
+
+        if (n < 0 || p < 0) {
+            throw new Exception("n and p should be non-negative");
+        }//end of if        
+
+        return (int) Math.pow(n, p);
+    }//end
+
+    class StackAndQueuePalindrome {
+
+        Stack<Character> myStack = new Stack<>();
+        //Linked list is abstract Can not Instantiate 
+        Queue<Character> myQueue = new LinkedList<>();
+
+        void pushCharacter(char ch) {
+            myStack.push(ch);
+        }
+
+        void enqueueCharacter(char ch) {
+            myQueue.add(ch);
+        }
+
+        char popCharacter() {
+            return myStack.pop();
+        }
+        char dequeueCharacter(){
+            return myQueue.remove();
+        }
+    }
 }

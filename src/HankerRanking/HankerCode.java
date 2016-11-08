@@ -8,15 +8,10 @@ package HankerRanking;
 import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
+
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.Set;
 
-/**
- *
- * @author Jovy
- */
 public class HankerCode {
 //
 //    /**
@@ -25,8 +20,49 @@ public class HankerCode {
 
     public static void main(String[] args) {
 
-       // gethowToStringToCompareTo();
-        getFindMiddleFormUnKnownListSize();
+        getAreaofTriangles();
+
+    static void getAreaofTriangles() {
+        Scanner in = new Scanner(System.in);
+     //  int n = in.nextInt();
+        int[][] a = {{1, 1, 5, 1, 3, 3}, {1, 2, 5, 2, 5, 6}, {1, 6, 5, 2, 1, 2}};
+        int d = 3;
+        int[][] data = new int[d][6];
+        System.out.println("a.length " + a.length);
+        System.out.println("a[0].length " + a[0].length);
+        double sumi = 0.0;
+        double sumj = 0.0;
+        double sumk = 0.0;
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[0].length; j++) {
+                data[i][j] = j;
+            }
+        }
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[0].length; j++) {
+                System.out.println(data[i][j]);
+            }
+        }
+
+        double groupSum = 0.0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                sumi = a[j][2] * a[j][5] - a[j][3] * a[j][4];
+                //a[0][0] * a[0][4] + " - " + a[0][1] * a[0][5] + " = " + 
+                sumj = a[j][0] * a[j][4] - a[j][1] * a[j][5];
+                //a[0][0] * a[0][2] + " - " + a[0][1] * a[0][3] + " = " + 
+                sumk = a[j][0] * a[j][2] - a[j][1] * a[j][3];
+
+                groupSum += (sumi + sumj + sumk) / 2.0;
+
+            }
+     
+            sumi = 0;
+            sumj = 0;
+            sumk = 0;
+        }
+        System.out.println(groupSum/ 2.0);
+
     }
 
     static void getIntroductionChallenges() {
