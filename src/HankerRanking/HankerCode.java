@@ -21,6 +21,7 @@ public class HankerCode {
     public static void main(String[] args) {
 
         getAreaofTriangles();
+    }
 
     static void getAreaofTriangles() {
         Scanner in = new Scanner(System.in);
