@@ -10,18 +10,31 @@ import java.util.logging.Logger;
 public class DaysOfCode {
 
     public static void main(String[] flagg) {
-        getDay20Sorting();
+      //  getDay20Sorting();
+        String[] strArray = {"Simmigon", "Daril","Flagg"};
+        Integer[] intArray = {3, 2,1};
+        System.out.println( printArray(strArray));
+        System.out.println( printArray(intArray));
         
+    }
+    static <T> boolean printArray(T[] ObjectArray){
+        //getDay21Generics
+        for(T element : ObjectArray){
+            System.out.print(element + " ");
+        }
+        System.out.println("");
+        return true;
     }
 
     static void getDay20Sorting() {
         Scanner in = new Scanner(System.in);
         int swap = 0;
-       // int n = in.nextInt();
-        int a[] = {3, 2, 1};//new int[n];
-//        for (int a_i = 0; a_i < n; a_i++) {
-//            a[a_i] = in.nextInt();
-//        }
+        int n = in.nextInt();
+        int a[] = new int[n];
+        //int a[] = {3, 2, 1};
+        for (int a_i = 0; a_i < n; a_i++) {
+            a[a_i] = in.nextInt();
+        }
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a.length - 1; j++) {
                 if (a[j] > a[j + 1]) {
